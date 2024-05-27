@@ -20,12 +20,13 @@
             <div class="card" style="width: 18rem; display:inline-grid">
                 <img src="{{ $article-> image }}" class="card-img-top" alt="...">
                 <div class="card-body">
+                  <h3 class="card-title">{{ $article -> id}}</h5>
                   <h3 class="card-title">{{ $article -> nom }}</h5>
                   <p class="card-title">{{ $article -> date}}</p>  
                   <p class="card-text">{{ $article -> description }}</p>
                   <p class="card-title">{{ $article -> etat }}</p>  
-                   <a href="update_article/ {{ $article-> nom }}" class="btn btn-primary">modifier</a> 
-                   <a href="#" class="btn btn-danger">Supprimer</a> 
+                   <a href="update_article/ {{ $article -> id }}" class="btn btn-primary">modifier</a> 
+                   <a href="delete_article/ {{ $article -> id }}" class="btn btn-danger">Supprimer</a> 
                 </div>  
               </div>   
               @endforeach

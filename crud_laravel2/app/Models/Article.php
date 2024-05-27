@@ -18,4 +18,9 @@ class Article extends Model
         
         
     ];
+
+    protected $table = 'articles';
+    protected $keyType = 'integer';
+
+    
 }

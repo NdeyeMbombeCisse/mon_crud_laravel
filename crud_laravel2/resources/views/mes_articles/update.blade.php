@@ -18,8 +18,10 @@
                 {{ session ('status') }}
             </div>
             @endif
-            <form action="modifier/traitement" method="POST">
+           
+            <form action="update/traitement" method="POST">
                 @csrf
+                <input type="text" name="id" style="display:none ;" value="{{ $articles->id}}">
                 <ul>
                     @foreach ( $errors->all() as $error )
                     <li class="alert alert-danger">{{ $error }}</li>
@@ -31,7 +33,7 @@
                 <div class="mb-1">
                   <label for="text" class="form-label">Ajouter L'URL de l'image</label>
                     <input type="text" class="form-control" id="image" name="image" accept="image/*"  value="{{ $articles->image}}"><br>
-                  </div>
+                  </div> 
                 <div class="mb-3">
                   <label for="nom" class="form-label">Donner le nom de l'article</label>
                   <input type="text" class="form-control" id="nom" name="nom" value="{{ $articles->nom }}">

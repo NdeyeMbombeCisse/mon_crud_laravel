@@ -70,9 +70,9 @@ class ArticleController extends Controller
     return redirect('/Ajouter')->with('status', 'L\'article a bien été ajouté avec succès');
 }
 
-public function update_article($nom){
-    $articles = Article :: find($nom);
-    return view('mes_articles.update',compact($articles));
+public function update_article($id){
+    $articles = Article :: find($id);
+    return view('mes_articles.update',compact('articles'));
 }
 
 public function update_traitement(Request $request){
@@ -97,9 +97,15 @@ public function update_traitement(Request $request){
 
     $article->update();
     
-    return redirect('/Ajouter')->with('status', 'L\'article a bien été modifi avec succès');
+    return redirect('Affichage')->with('status', 'L\'article a bien été modifi avec succès');
     
 
+}
+public function delete_article($id){
+    $article= Article :: find($id);
+    $article->delete();
+    return redirect('Affichage')->with('status', 'L\'article a bien été supprime avec succès');
+    
 }
 
 }
