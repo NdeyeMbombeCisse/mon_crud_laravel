@@ -75,7 +75,7 @@ public function update_article($id){
     return view('mes_articles.update',compact('articles'));
 }
 
-public function update_traitement(Request $request){
+public function update_traitement(Request $request, $id){
      // Valider les données du formulaire
      $request->validate([
         // 'image' => 'required|image', // Assurez-vous que le champ de l'image est requis et qu'il s'agit d'une image
@@ -88,18 +88,16 @@ public function update_traitement(Request $request){
     
 
     // Créer un nouvel article avec les données du formulaire
-    $article = new Article();
+    $article =  Article::find($id);
     $article->image = $request->nom; // Attribuez le chemin de l'image à la propriété 'image'
     $article->nom = $request->nom;
     $article->description = $request->description;
     $article->date = $request->date;
     $article->etat = $request->etat;
-
     $article->update();
     
     return redirect('Affichage')->with('status', 'L\'article a bien été modifi avec succès');
     
-
 }
 public function delete_article($id){
     $article= Article :: find($id);

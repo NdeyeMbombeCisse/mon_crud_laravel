@@ -19,8 +19,9 @@
             </div>
             @endif
            
-            <form action="update/traitement" method="POST">
+            <form action="{{ url('update_article/'.$articles->id) }}" method="POST">
                 @csrf
+                @methode('put')
                 <input type="text" name="id" style="display:none ;" value="{{ $articles->id}}">
                 <ul>
                     @foreach ( $errors->all() as $error )

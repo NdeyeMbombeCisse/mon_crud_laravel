@@ -25,7 +25,7 @@
                   <p class="card-title">{{ $article -> date}}</p>  
                   <p class="card-text">{{ $article -> description }}</p>
                   <p class="card-title">{{ $article -> etat }}</p>  
-                   <a href="update_article/ {{ $article -> id }}" class="btn btn-primary">modifier</a> 
+                   <a href="update_article/{{ $article -> id }}" class="btn btn-primary">modifier</a> 
                    <a href="delete_article/ {{ $article -> id }}" class="btn btn-danger">Supprimer</a> 
                 </div>  
               </div>   
