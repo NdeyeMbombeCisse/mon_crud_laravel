@@ -7,8 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
-   
-
     <div class="container ">
         <div class="row">
           <div class="col">
@@ -25,9 +23,7 @@
                     <li class="alert alert-danger">{{ $error }}</li>
                     
                     @endforeach
-
                 </ul>
-
                 <div class="mb-1">
                   <label for="text" class="form-label">Ajouter L'URL de l'image</label>
                     <input type="text" class="form-control" id="image" name="image" accept="image/*" ><br>
@@ -46,15 +42,13 @@
                   </div>
                   <div class="mb-3">
                     <label for="etat" class="form-label">Donner le etat de l'article</label>
-                    <input type="text" class="form-control" id="etat" name="etat">
+                     <input type="text" class="form-control" id="etat" name="etat"> 
+                  
                     
                   </div>
                 <button type="Soumettre" class="btn btn-primary">Soumettre</button>
                 <a href="Affichage"  class="btn btn-danger"> voir la liste</a>
               </form>
-              
-
-            
           </div>
         </div>
       </div>

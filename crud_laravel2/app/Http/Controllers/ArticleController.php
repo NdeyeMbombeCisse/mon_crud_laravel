@@ -18,48 +18,31 @@ class ArticleController extends Controller
         return view('mes_articles.ajouter');
     }
 
-    // public function article_traitement(Request $request){
-    //     // $request->validate([
-    //     //     'imgage' => 'required',
-    //     //     'nom' => 'required',
-    //     //     'description' => 'required',
-    //     //     'dare' => 'required',
-    //     //     'etat' => 'required',
-    //     // ]);
-
-    //     $imagePath = $request->file('image')->store('images', 'public');
-
-    //     $article=new Article();
-    //     $article->image=$imagePath;
-    //     $article-> nom = $request->nom;
-    //     $article-> description = $request->description;
-    //     $article-> date = $request->date;
-    //     $article-> etat = $request->etat;
-
-    //     $article->save();
-    //     return redirect('/Ajouter')->with('status','L\' article a bien ete ajoute avec succes');
-
-
-
-
-    // }
 
     public function article_traitement(Request $request)
 {
     // Valider les données du formulaire
     $request->validate([
-        // 'image' => 'required|image', // Assurez-vous que le champ de l'image est requis et qu'il s'agit d'une image
+         'image' => 'required', 
         'nom' => 'required',
         'description' => 'required',
         'date' => 'required',
-        // 'etat' => 'required',
+         'etat' => 'required',
     ]);
+
+    
+
+    // if ($request->hasFile('image')) {
+    //     $imagePath = $request->file('image')->store('images', 'public');
+        
+    // }
+
 
     
 
     // Créer un nouvel article avec les données du formulaire
     $article = new Article();
-    $article->image = $request->nom; // Attribuez le chemin de l'image à la propriété 'image'
+    $article->image = $request-> image;// Attribuez le chemin de l'image à la propriété 'image'
     $article->nom = $request->nom;
     $article->description = $request->description;
     $article->date = $request->date;
@@ -78,18 +61,23 @@ public function update_article($id){
 public function update_traitement(Request $request, $id){
      // Valider les données du formulaire
      $request->validate([
-        // 'image' => 'required|image', // Assurez-vous que le champ de l'image est requis et qu'il s'agit d'une image
+         'image' => 'required', 
         'nom' => 'required',
         'description' => 'required',
         'date' => 'required',
-        // 'etat' => 'required',
+         'etat' => 'required',
     ]);
 
     
+    //  if ($request->hasFile('image')) {
+    //     $imagePath = $request->file('image')->store('images', 'public');
+        
+    //  }
+
 
     // Créer un nouvel article avec les données du formulaire
     $article =  Article::find($id);
-    $article->image = $request->nom; // Attribuez le chemin de l'image à la propriété 'image'
+    $article->image = $request->image;// Attribuez le chemin de l'image à la propriété 'image'
     $article->nom = $request->nom;
     $article->description = $request->description;
     $article->date = $request->date;
@@ -104,6 +92,10 @@ public function delete_article($id){
     $article->delete();
     return redirect('Affichage')->with('status', 'L\'article a bien été supprime avec succès');
     
+}
+
+public function detail_article(){
+    return view('mes_articles.detail');
 }
 
 }
