@@ -15,7 +15,7 @@
             <h1> liste des articles</h1>
 
 
-            <a href="/Ajouter" class="btn btn-primary">Ajouter un etudiant</a> <br> <br>
+            <a href="/Ajouter" class="btn btn-primary">Ajouter un article</a> <br> <br>
             @foreach ($articles as $article)           
             <div class="card" style="width: 30rem; display:inline-grid">
                 <img src="{{ $article-> image }}" class="card-img-top" alt="...">
